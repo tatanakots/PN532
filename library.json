@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/schema/library.json",
   "name": "PN532-Arduino",
-  "description": "This is Seeed-Studio's library for PN532 to use NFC technology.",
+  "description": "This is Tatanako's library for PN532 to use NFC technology.",
   "authors": [
     {
       "maintainer": true,
@@ -23,6 +23,11 @@
     },
     {
       "url": "https://github.com/wilson-elechouse"
+    },
+    {
+      "name": "Tatanakots",
+      "email": "t@mtf.im",
+      "url": "https://github.com/tatanakots"
     }
   ],
   "frameworks": ["arduino"],
@@ -36,7 +41,7 @@
     "PN532_SWHSU.h"
   ],
   "repository": {
-    "url": "https://github.com/Seeed-Studio/PN532.git",
+    "url": "https://github.com/tatanakots/PN532.git",
     "branch": "arduino",
     "type": "git"
   },

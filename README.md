@@ -1,10 +1,10 @@
 # NFC library
 
 This is an library for PN532 to use NFC technology.
-It is for [NFC Shield](https://www.seeedstudio.com/NFC-Shield-V2-0.html) and [Grove - NFC](https://www.seeedstudio.com/Grove-NFC.html).
+It is for [Arduino-Aime-Reader](https://github.com/tatanakots/Arduino-Aime-Reader).
 
-[![NFC Shield](https://statics3.seeedstudio.com/images/113030001%201.jpg)](https://www.seeedstudio.com/NFC-Shield-V2-0.html)
-[![Grove - NFC](https://statics3.seeedstudio.com/images/product/grove%20nfc.jpg)](https://www.seeedstudio.com/Grove-NFC.html)
+[![Tatanako's Kobato](/docs/imgs/tatanako-kobato-1.png)](https://github.com/tatanakots/Arduino-Aime-Reader)
+[![Tatanako's Kobato](/docs/imgs/tatanako-kobato-2.png)](https://github.com/tatanakots/Arduino-Aime-Reader)
 
 ## Features
 
@@ -24,7 +24,7 @@ It is for [NFC Shield](https://www.seeedstudio.com/NFC-Shield-V2-0.html) and [Gr
 
 ### Using Arduino IDE
 
-1. Download [zip file](https://github.com/Seeed-Studio/PN532/archive/refs/heads/arduino.zip)， extract it into Arduino's libraries and rename it to PN532-Arduino.
+1. Download [zip file](https://github.com/tatanakots/PN532/archive/refs/heads/arduino.zip)， extract it into Arduino's libraries and rename it to PN532-Arduino.
 2. Download [Don's NDEF library](https://github.com/don/NDEF/archive/refs/heads/master.zip)， extract it into Arduino's libraries and rename it to NDEF.
 3. Add the `NFC_INTERFACE_<interface>` build flag to your build system or define it in your code using `#define NFC_INTERFACE_<interface>` like
 
@@ -36,11 +36,11 @@ It is for [NFC Shield](https://www.seeedstudio.com/NFC-Shield-V2-0.html) and [Gr
 
 ### PlatformIO library
 
-Add `https://github.com/Seeed-Studio/PN532.git` to your `lib_deps` variable in `platformio.ini` like so. This library will automatically include Don's NDEF library as well.
+Add `https://github.com/tatanakots/PN532.git` to your `lib_deps` variable in `platformio.ini` like so. This library will automatically include Don's NDEF library as well.
 
 ```
 lib_deps =
-    https://github.com/Seeed-Studio/PN532.git
+    https://github.com/tatanakots/PN532.git
 ```
 
 > ⚠️ Besides using the correct `PN532_<interface>.h` include file, you have to add `-DNFC_INTERFACE_<interface>` to `build_flags` to select what interface you want to use. This is done to prevent requiring unnecessary dependencies on e.g. `SoftwareSerial` or `SPI` when you are not using those interfaces.
@@ -55,7 +55,7 @@ build_flags =
 1.  Get PN532 library and NDEF library
 
         cd {Arduino}\libraries
-        git clone --recursive https://github.com/Seeed-Studio/PN532.git NFC
+        git clone --recursive https://github.com/tatanakots/PN532.git NFC
         git clone --recursive https://github.com/don/NDEF.git NDEF
         ln -s NFC/PN532 ./
         ln -s NDEF/NDEF ./
@@ -90,7 +90,7 @@ Read the section for the interface you want to use.
 
 ## HSU Interface
 
-HSU is short for High Speed Uart. HSU interface needs only 4 wires to connect PN532 with Arduino, [Sensor Shield](http://goo.gl/i0EQgd) can make it more easier. For some Arduino boards like [Leonardo][leonardo], [DUE][due], [Mega][mega] ect, there are more than one `Serial` on these boards, so we can use this additional Serial to control PN532, HSU uses 115200 baud rate.
+HSU is short for High Speed Uart. HSU interface needs only 4 wires to connect PN532 with Arduino, Sensor Shield can make it more easier. For some Arduino boards like [Leonardo][leonardo], [DUE][due], [Mega][mega] ect, there are more than one `Serial` on these boards, so we can use this additional Serial to control PN532, HSU uses 115200 baud rate.
 
 To use the `Serial1` control PN532, refer to the code below.
 
@@ -146,7 +146,7 @@ void setup(void)
 ## Attribution
 
 This library is based on [Adafruit_NFCShield_I2C](https://github.com/adafruit/Adafruit_NFCShield_I2C).
-[Seeed Studio](hhttps://www.seeedstudio.com/) rewrite the library to make it easy to support different interfaces and platforms.
+[Seeed Studio](https://www.seeedstudio.com/) rewrite the library to make it easy to support different interfaces and platforms.
 [@Don](https://github.com/don) writes the [NDEF library](https://github.com/don/NDEF) to make it more easy to use.
 [@JiapengLi](https://github.com/JiapengLi) adds HSU interface.
 [@awieser](https://github.com/awieser) adds card emulation function.
