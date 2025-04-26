@@ -1276,7 +1276,7 @@ int8_t PN532::felica_SendCommand(const uint8_t *command, uint8_t commandlength, 
     }
 
     // Wait card response
-    int16_t status = HAL(readResponse)(pn532_packetbuffer, sizeof(pn532_packetbuffer), 200);
+    int16_t status = HAL(readResponse)(pn532_packetbuffer, sizeof(pn532_packetbuffer), 1000);
     if (status < 0)
     {
         DMSG("Could not receive response\n");
@@ -1297,7 +1297,7 @@ int8_t PN532::felica_SendCommand(const uint8_t *command, uint8_t commandlength, 
     if ((status - 2) != *responseLength)
     {
         DMSG("Wrong response length\n");
-        return -5;
+        //return -5;
     }
 
     memcpy(response, &pn532_packetbuffer[2], *responseLength);
